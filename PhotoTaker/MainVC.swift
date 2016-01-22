@@ -23,8 +23,13 @@ class MainVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     }
 
     @IBAction func takePhotoPressed(sender: AnyObject) {
-        let picker = getPickerController(UIImagePickerControllerSourceType.Camera)
-        presentViewController(picker, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            let picker = getPickerController(UIImagePickerControllerSourceType.Camera)
+            presentViewController(picker, animated: true, completion: nil)
+        } else {
+            NSLog("Unfortunately you can't use a camera.")
+            self.loadLatestPhoto(self)
+        }
     }
     
     func getPickerController(sourceType: UIImagePickerControllerSourceType) -> UIImagePickerController {
