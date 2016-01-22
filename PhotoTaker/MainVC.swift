@@ -12,40 +12,40 @@ class MainVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     @IBOutlet weak var imageHolder: UIImageView!
     
+    let pickerController = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
+    }
+    
+    @IBAction func loadLatestPhotoTapped(sender: AnyObject) {
+        loadLatestPhoto()
     }
 
-    @IBAction func loadLatestPhoto(sender: AnyObject) {
-        let picker = getPickerController(UIImagePickerControllerSourceType.PhotoLibrary)
-        presentViewController(picker, animated: true, completion: nil)
-
-    }
-
-    @IBAction func takePhotoPressed(sender: AnyObject) {
+    @IBAction func takePhotoTapped(sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            let picker = getPickerController(UIImagePickerControllerSourceType.Camera)
-            presentViewController(picker, animated: true, completion: nil)
+            pickerController.sourceType = .Camera
+            presentViewController(pickerController, animated: true, completion: nil)
         } else {
-            NSLog("Unfortunately you can't use a camera.")
-            self.loadLatestPhoto(self)
+            NSLog("Unfortunately you can't use the camera.")
+            loadLatestPhoto()
         }
     }
     
-    func getPickerController(sourceType: UIImagePickerControllerSourceType) -> UIImagePickerController {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = sourceType
-        pickerController.allowsEditing = true
-        return pickerController
+    func loadLatestPhoto() {
+        pickerController.sourceType = .PhotoLibrary
+        presentViewController(pickerController, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.delegate = nil
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         imageHolder.image = image
     }
 }
