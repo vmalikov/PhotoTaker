@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dy3-LO-mmq">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="2o5-0j-xQt">
+            <objects>
+                <viewController id="dy3-LO-mmq" customClass="MainVC" customModule="PhotoTaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ke1-uM-EIL"/>
+                        <viewControllerLayoutGuide type="bottom" id="nc1-41-VVa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ab7-aW-dtg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGV-cq-WAc">
+                                <rect key="frame" x="20" y="94" width="560" height="30"/>
+                                <state key="normal" title="Load the latest photo"/>
+                                <connections>
+                                    <action selector="loadLatestPhoto:" destination="dy3-LO-mmq" eventType="touchUpInside" id="Pgo-Om-gge"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meb-Ib-ctt">
+                                <rect key="frame" x="20" y="56" width="560" height="30"/>
+                                <state key="normal" title="Take photo"/>
+                                <connections>
+                                    <action selector="takePhotoPressed:" destination="dy3-LO-mmq" eventType="touchUpInside" id="lFn-qY-091"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NL7-ei-GFW">
+                                <rect key="frame" x="183" y="173" width="234" height="253"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="CSr-r2-QaW"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="meb-Ib-ctt" firstAttribute="trailing" secondItem="uGV-cq-WAc" secondAttribute="trailing" id="0sy-fD-Rui"/>
+                            <constraint firstItem="NL7-ei-GFW" firstAttribute="centerX" secondItem="uGV-cq-WAc" secondAttribute="centerX" id="6CX-Gl-EX5"/>
+                            <constraint firstItem="NL7-ei-GFW" firstAttribute="centerY" secondItem="ab7-aW-dtg" secondAttribute="centerY" id="InR-Kb-ngc"/>
+                            <constraint firstItem="uGV-cq-WAc" firstAttribute="trailing" secondItem="ab7-aW-dtg" secondAttribute="trailingMargin" id="LAd-Nu-S4g"/>
+                            <constraint firstItem="meb-Ib-ctt" firstAttribute="top" secondItem="Ke1-uM-EIL" secondAttribute="bottom" constant="36" id="M6y-k2-fc2"/>
+                            <constraint firstItem="nc1-41-VVa" firstAttribute="top" secondItem="NL7-ei-GFW" secondAttribute="bottom" constant="174" id="RFC-MG-Egw"/>
+                            <constraint firstItem="meb-Ib-ctt" firstAttribute="leading" secondItem="ab7-aW-dtg" secondAttribute="leadingMargin" id="VXX-JG-6GJ"/>
+                            <constraint firstItem="uGV-cq-WAc" firstAttribute="leading" secondItem="meb-Ib-ctt" secondAttribute="leading" id="cmm-bK-0dN"/>
+                            <constraint firstItem="NL7-ei-GFW" firstAttribute="top" secondItem="uGV-cq-WAc" secondAttribute="bottom" constant="49" id="j38-Oe-NJR"/>
+                            <constraint firstItem="uGV-cq-WAc" firstAttribute="top" secondItem="meb-Ib-ctt" secondAttribute="bottom" constant="8" symbolic="YES" id="pSM-IH-O81"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageHolder" destination="NL7-ei-GFW" id="Ce4-9P-mPP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G38-c8-dSl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1833" y="304"/>
+        </scene>
+    </scenes>
+</document>
