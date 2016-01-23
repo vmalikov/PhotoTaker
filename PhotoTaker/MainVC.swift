@@ -85,6 +85,6 @@ class MainVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     }
     
     func setPhoto(image: UIImage) {
-        self.imageHolder.image = image
+        imageHolder.image = image
     }
 }
